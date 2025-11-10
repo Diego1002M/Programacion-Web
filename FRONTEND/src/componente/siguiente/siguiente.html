@@ -1,0 +1,27 @@
+<div class="principal-form">
+  <h1>Formulario de Acceso</h1>
+
+  <img class="logo" src="Logo.jpg" alt="Logo">
+
+  <form>
+    
+    <div class="mb-3">
+      <label for="email" class="form-label">Nombre de usuario</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="password">
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="check">
+      <label class="form-check-label" for="check">Recordarme</label>
+    </div>
+
+    <button (click)="Registrar()" class="btn btn-primary mt-3">Registrar</button>
+    <button (click)="Iniciar()" class="btn btn-primary mt-3">Iniciar sesión</button>
+
+  </form>
+</div>
