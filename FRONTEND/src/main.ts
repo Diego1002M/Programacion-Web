@@ -4,7 +4,5 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 
 bootstrapApplication(App, {
-  providers: [
-    provideRouter(routes) // ✅ aquí es donde se conectan las rutas
-  ]
+  providers: [provideRouter(routes)],
 });

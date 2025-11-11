@@ -1,0 +1,50 @@
+<div id="wrapper" [class.toggled]="isToggled">
+  <div class="overlay" [style.display]="isClosed ? 'none' : 'block'"></div>
+
+  <!-- Sidebar -->
+  <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+    <ul class="nav sidebar-nav">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <a href="#">Brand</a>
+        </div>
+      </div>
+      <li><a routerLink="/inicio">Home</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/events">Events</a></li>
+      <li><a routerLink="/team">Team</a></li>
+      <li class="dropdown">
+        <a href="#" (click)="toggleSidebar()">Works <span class="caret"></span></a>
+        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+          <div class="dropdown-header">Dropdown heading</div>
+          <li><a routerLink="/pictures">Pictures</a></li>
+          <li><a routerLink="/videos">Videos</a></li>
+          <li><a routerLink="/books">Books</a></li>
+          <li><a routerLink="/art">Art</a></li>
+          <li><a routerLink="/awards">Awards</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/services">Services</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+      <li><a routerLink="/follow">Follow me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <button
+      type="button"
+      class="hamburger animated fadeInLeft"
+      [ngClass]="{ 'is-closed': isClosed, 'is-open': !isClosed }"
+      (click)="toggleMenu(); toggleSidebar()"
+    >
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

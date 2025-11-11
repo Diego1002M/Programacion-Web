@@ -1,27 +1,67 @@
-<div class="principal-form">
-  <h1>Formulario de Acceso</h1>
 
-  <img class="logo" src="Logo.jpg" alt="Logo">
+	<a href="https://front.codes/" class="logo" target="_blank">
+		<img src="https://assets.codepen.io/1462889/fcy.png" alt="">
+	</a>
 
-  <form>
-    
-    <div class="mb-3">
-      <label for="email" class="form-label">Nombre de usuario</label>
-      <input type="email" class="form-control" id="email">
-    </div>
-
-    <div class="mb-3">
-      <label for="password" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="password">
-    </div>
-
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="check">
-      <label class="form-check-label" for="check">Recordarme</label>
-    </div>
-
-    <button (click)="Registrar()" class="btn btn-primary mt-3">Registrar</button>
-    <button (click)="Iniciar()" class="btn btn-primary mt-3">Iniciar sesión</button>
-
-  </form>
-</div>
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><span>Iniciar </span><span>Registrarse</span></h6>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Iniciar Sesión</h4>
+											<div class="form-group">
+												<input type="email" name="logemail" class="form-style" placeholder="Email" id="logemail" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Contraseña" id="logpass" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<a (click)="irPagina3()" class="btn mt-4">Iniciar</a>
+                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">¿Olvidaste tu contraseña?</a></p>
+				      					</div>
+			      					</div>
+			      				</div>
+								<div class="card-back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Registrarse</h4>
+											<div class="form-group">
+												<input type="text" name="logname" class="form-style" placeholder="Nombres y apellidos" id="logname" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+                      <div class="form-group">
+												<input type="text" name="logname" class="form-style" placeholder="DNI" id="logname" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>
+                      <div class="form-group">
+												<input type="text" name="logname" class="form-style" placeholder="Celular" id="logname" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="email" name="logemail" class="form-style" placeholder="Email o usuario" id="logemail" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Contraseña nueva" id="logpass" autocomplete="off">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<a (click)="irPagina3()" class="btn mt-4">Registrarse</a>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>

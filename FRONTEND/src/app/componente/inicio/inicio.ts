@@ -11,7 +11,10 @@ export class InicioComponent {
 
   constructor(private router: Router) {}
 
-  irSiguiente() {
-    this.router.navigate(['/siguiente']); // Navega a SiguienteComponent
-  }
+irSiguiente() {
+  console.log('Botón presionado');
+  this.router.navigate(['/siguiente']);
+}
+
+  
 }

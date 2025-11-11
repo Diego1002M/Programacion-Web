@@ -11,12 +11,8 @@ export class SiguienteComponent {
 
   constructor(private router: Router) {}
 
-  Registrar() {
-    this.router.navigate(['/registro']); 
-  }
-
-  Iniciar() {
-    this.router.navigate(['/iniciar']); 
+irPagina3() {
+    this.router.navigate(['/pagina3']);
   }
 
  }
