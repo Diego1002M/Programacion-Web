@@ -13,10 +13,10 @@ class UsuarioService:
     async def registrar_usuario(cls, data: dict):
         nuevo = {
             "id": len(cls._usuarios) + 1,
-            "nombre": data.get("nombre"),
-            "apellido": data.get("apellido"),
-            "usuario": data.get("usuario"),
-            "contrasena": data.get("contrasena"),
+            "nombre": data.get(),
+            "apellido": data.get(""),
+            "usuario": data.get(""),
+            "contrasena": data.get(""),
         }
         cls._usuarios.append(nuevo)
         await asyncio.sleep(0)
