@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // ✅ Importa Router
+import { Router } from '@angular/router';
+import { AlertaService } from '../../services/alerta.service'; // ✅ Import correcto
 
 @Component({
   selector: 'app-pagina3',
@@ -11,7 +12,10 @@ import { Router } from '@angular/router'; // ✅ Importa Router
 })
 export class Pagina3 {
 
-  constructor(private router: Router) {} // ✅ Inyección de Router
+  constructor(
+    private router: Router,
+    private alertaService: AlertaService   // ✅ Inyección del servicio
+  ) {}
 
   opcionSeleccionada: number | null = null;
 
@@ -33,15 +37,29 @@ export class Pagina3 {
 
   enviarAlerta() {
     if (this.opcionSeleccionada !== null) {
-      const alerta = this.opciones[this.opcionSeleccionada];
-      console.log('🚨 Alerta registrada:', alerta.texto);
-      // Aquí puedes conectar con tu backend FastAPI más adelante
+      const alerta = {
+        tipo: this.opciones[this.opcionSeleccionada].texto,
+        descripcion: 'Enviada desde el frontend Angular',
+        origen: 'Frontend'
+      };
+
+      // ✅ Enviar al backend
+      this.alertaService.crearAlerta(alerta).subscribe({
+        next: (res) => {
+          console.log('🚨 Alerta enviada al backend:', res);
+          alert('✅ Alerta registrada correctamente.');
+        },
+        error: (err) => {
+          console.error('❌ Error al enviar alerta:', err);
+          alert('Error al registrar la alerta.');
+        }
+      });
     } else {
       alert('Por favor, selecciona una opción antes de continuar.');
     }
   }
 
   irInicio() {
-    this.router.navigate(['/inicio']); // ✅ Navega al inicio
+    this.router.navigate(['/inicio']);
   }
 }
