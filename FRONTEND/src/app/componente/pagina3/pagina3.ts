@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // 👈 IMPORTANTE
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // ✅ Importa Router
 
 @Component({
   selector: 'app-pagina3',
   standalone: true,
-  imports: [CommonModule], // 👈 AGREGA ESTO
+  imports: [CommonModule],
   templateUrl: './pagina3.html',
   styleUrls: ['./pagina3.css']
 })
 export class Pagina3 {
+
+  constructor(private router: Router) {} // ✅ Inyección de Router
+
   opcionSeleccionada: number | null = null;
 
   opciones = [
@@ -18,8 +22,8 @@ export class Pagina3 {
     { img: 'assets/violencia.png', texto: 'Violencia doméstica' },
     { img: 'assets/emergencia.png', texto: 'Emergencia médica' },
     { img: 'assets/sospechoso.png', texto: 'Persona sospechosa' },
-    { img: 'assets/animal.png', texto: 'Animal peligroso' },
-    { img: 'assets/corte.png', texto: 'Corte de luz o agua' },
+    { img: 'assets/animal.png', texto: 'Secuestro' },
+    { img: 'assets/corte.png', texto: 'Extorsión' },
     { img: 'assets/otro.png', texto: 'Otro tipo de emergencia' },
   ];
 
@@ -31,10 +35,13 @@ export class Pagina3 {
     if (this.opcionSeleccionada !== null) {
       const alerta = this.opciones[this.opcionSeleccionada];
       console.log('🚨 Alerta registrada:', alerta.texto);
-      // llamar a FastAPI xddd
-
+      // Aquí puedes conectar con tu backend FastAPI más adelante
     } else {
       alert('Por favor, selecciona una opción antes de continuar.');
     }
+  }
+
+  irInicio() {
+    this.router.navigate(['/inicio']); // ✅ Navega al inicio
   }
 }
