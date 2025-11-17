@@ -1,7 +1,6 @@
 from src.database.conexion import get_connection
 from datetime import datetime
 
-
 class AlertaService:
 
     @classmethod

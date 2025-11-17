@@ -31,7 +31,7 @@ def get_connection(host: str | None = None,
 
     host = host or os.getenv("DB_HOST", "localhost")
     user = user or os.getenv("DB_USER", "root")
-    password = password or os.getenv("DB_PASSWORD", "")
+    password = password or os.getenv("DB_PASSWORD", "palomino")
     database = database or os.getenv("DB_NAME", "proyecto_web")
     port = port or int(os.getenv("DB_PORT", "3306"))
 

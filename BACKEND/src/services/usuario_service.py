@@ -46,14 +46,3 @@ class UsuarioService:
             "mensaje": "Usuario registrado correctamente",
             "usuario": {**data, "id": new_id}
         }
-    async def registrar_usuario(cls, data: dict):
-        nuevo = {
-            "id": len(cls._usuarios) + 1,
-            "nombre": data.get(),
-            "apellido": data.get(""),
-            "usuario": data.get(""),
-            "contrasena": data.get(""),
-        }
-        cls._usuarios.append(nuevo)
-        await asyncio.sleep(0)
-        return {"mensaje": "Usuario registrado correctamente", "usuario": nuevo}
