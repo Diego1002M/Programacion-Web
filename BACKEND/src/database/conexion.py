@@ -1,27 +1,19 @@
-# Modificación completa para usar el conector de MySQL
-import mysql.connector
-from mysql.connector import Error
-# Dentro de database/conexion.py
-# ...
-database="dipli_db", # <--- Asegúrate que este nombre coincida con la DB que creaste.
-# ...
+# database/conexion.py
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-def get_connection():
-    try:
-        # Los parámetros de conexión son diferentes para MySQL
-        connection = mysql.connector.connect(
-            host="localhost",           # Generalmente es 'localhost' si MySQL Workbench está en tu máquina
-            database="nombre_de_tu_db_mysql", # ¡IMPORTANTE! Cambia esto al nombre de tu base de datos en MySQL
-            user="root",    # Generalmente 'root' o un usuario que creaste
-            password="continental",   # La contraseña de ese usuario
-            port=3306                   # Puerto estándar de MySQL
-        )
-        if connection.is_connected():
-            print("✅ Conectado correctamente a MySQL.")
-            return connection
-        else:
-            print("❌ No se pudo establecer la conexión a MySQL.")
-            return None
-    except Error as e:
-        print(f"❌ Error al conectar a MySQL: {e}")
-        return None
+# --- ¡ESTA ES LA LÍNEA CLAVE! ---
+# Aquí pones tu usuario (root), tu contraseña (1234),
+# y tu base de datos (wankaseguradb).
+DATABASE_URL = "mysql+pymysql://root:1234@127.0.0.1/wankaseguradb"
+# ------------------------------------
+
+# Crea el "motor" (engine) de la base de datos
+engine = create_engine(DATABASE_URL)
+
+# Crea una "fábrica" de sesiones (para hablar con la BD)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Crea una "Base" que tus modelos de datos usarán
+Base = declarative_base()

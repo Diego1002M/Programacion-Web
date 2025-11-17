@@ -1,20 +1,33 @@
-# src/apis/usuarios.py
-from fastapi import APIRouter
-from pydantic import BaseModel
-from src.services.usuario_service import UsuarioService
+# apis/usuarios.py
+from sqlalchemy.orm import Session
 
-router = APIRouter()
+# --- ¡LOS IMPORTS CORRECTOS! ---
+# (Sin ".." y sin "src.")
+from database import models
+import schemas
+# ---------------------------------
 
-class UsuarioIn(BaseModel):
-    nombre: str
-    apellido: str
-    usuario: str
-    contrasena: str
+def get_usuario_by_correo(db: Session, correo: str):
+    return db.query(models.Usuario).filter(models.Usuario.correo == correo).first()
 
-@router.get("/")
-async def obtener_usuarios():
-    return await UsuarioService.obtener_usuarios()
+def get_usuario_by_dni(db: Session, dni: str):
+    return db.query(models.Usuario).filter(models.Usuario.dni == dni).first()
 
-@router.post("/")
-async def registrar_usuario(usuario: UsuarioIn):
-    return await UsuarioService.registrar_usuario(usuario.dict())
+def get_usuario_by_id(db: Session, usuario_id: int):
+    return db.query(models.Usuario).filter(models.Usuario.id == usuario_id).first()
+
+def create_usuario(db: Session, usuario: schemas.UsuarioCreate):
+    hashed_password = usuario.contrasena + "_hash_real" 
+    
+    db_usuario = models.Usuario(
+        nombres=usuario.nombres,
+        apellidos=usuario.apellidos,
+        dni=usuario.dni,
+        correo=usuario.correo,
+        celular=usuario.celular,
+        contrasena_hash=hashed_password
+    )
+    db.add(db_usuario)
+    db.commit()
+    db.refresh(db_usuario)
+    return db_usuario
