@@ -1,9 +1,8 @@
-# src/apis/usuarios.py
 from fastapi import APIRouter
 from pydantic import BaseModel
 from src.services.usuario_service import UsuarioService
 
-router = APIRouter()
+router = APIRouter(prefix="/usuarios")
 
 class UsuarioIn(BaseModel):
     nombre: str
@@ -11,10 +10,10 @@ class UsuarioIn(BaseModel):
     usuario: str
     contrasena: str
 
-@router.get("/")
+@router.get("")
 async def obtener_usuarios():
-    return await UsuarioService.obtener_usuarios()
+    return UsuarioService.obtener_usuarios()
 
-@router.post("/")
+@router.post("")
 async def registrar_usuario(usuario: UsuarioIn):
-    return await UsuarioService.registrar_usuario(usuario.dict())
+    return UsuarioService.registrar_usuario(usuario.dict())

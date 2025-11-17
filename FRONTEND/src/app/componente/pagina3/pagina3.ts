@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AlertaService } from '../../services/alerta.service'; // ✅ Import correcto
+import { AlertaService } from '../../services/alerta.service';
 
 @Component({
   selector: 'app-pagina3',
@@ -14,7 +14,7 @@ export class Pagina3 {
 
   constructor(
     private router: Router,
-    private alertaService: AlertaService   // ✅ Inyección del servicio
+    private alertaService: AlertaService
   ) {}
 
   opcionSeleccionada: number | null = null;
@@ -28,7 +28,7 @@ export class Pagina3 {
     { img: 'assets/sospechoso.png', texto: 'Persona sospechosa' },
     { img: 'assets/animal.png', texto: 'Secuestro' },
     { img: 'assets/corte.png', texto: 'Extorsión' },
-    { img: 'assets/otro.png', texto: 'Otro tipo de emergencia' },
+    { img: 'assets/otro.png', texto: 'Otro tipo de emergencia' }
   ];
 
   seleccionarOpcion(index: number) {
@@ -36,27 +36,21 @@ export class Pagina3 {
   }
 
   enviarAlerta() {
-    if (this.opcionSeleccionada !== null) {
-      const alerta = {
-        tipo: this.opciones[this.opcionSeleccionada].texto,
-        descripcion: 'Enviada desde el frontend Angular',
-        origen: 'Frontend'
-      };
-
-      // ✅ Enviar al backend
-      this.alertaService.crearAlerta(alerta).subscribe({
-        next: (res) => {
-          console.log('🚨 Alerta enviada al backend:', res);
-          alert('✅ Alerta registrada correctamente.');
-        },
-        error: (err) => {
-          console.error('❌ Error al enviar alerta:', err);
-          alert('Error al registrar la alerta.');
-        }
-      });
-    } else {
-      alert('Por favor, selecciona una opción antes de continuar.');
+    if (this.opcionSeleccionada === null) {
+      alert('Selecciona una opción.');
+      return;
     }
+
+    const alerta = {
+      tipo: this.opciones[this.opcionSeleccionada].texto,
+      descripcion: 'Enviada desde el frontend Angular',
+      origen: 'Frontend'
+    };
+
+    this.alertaService.crearAlerta(alerta).subscribe({
+      next: () => alert('✔ Alerta registrada'),
+      error: (err) => console.error(err)
+    });
   }
 
   irInicio() {

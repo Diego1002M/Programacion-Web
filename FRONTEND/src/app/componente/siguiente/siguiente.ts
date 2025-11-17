@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AlertaService } from '../../services/alerta.service'; // 🔹 ruta correcta según tu estructura
+import { AlertaService } from '../../services/alerta.service';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-siguiente',
@@ -14,11 +15,26 @@ import { AlertaService } from '../../services/alerta.service'; // 🔹 ruta corr
 export class SiguienteComponent {
 
   alertas: any[] = [];
-  nuevaAlerta: any = { tipo: '', descripcion: '', origen: '' };
+  
+  nuevaAlerta = { 
+    tipo: '', 
+    descripcion: '', 
+    origen: '' 
+  };
+
+  nuevoUsuario = {
+    nombre: '',
+    apellido: '',
+    usuario: '',
+    contrasena: '',
+    dni: '',
+    celular: ''
+  };
 
   constructor(
     private router: Router,
-    private alertaService: AlertaService // ✅ sin errores
+    private alertaService: AlertaService,
+    private usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
@@ -27,25 +43,37 @@ export class SiguienteComponent {
 
   cargarAlertas(): void {
     this.alertaService.obtenerAlertas().subscribe({
-      next: (data: any) => {
-        this.alertas = data;
-      },
-      error: (error: any) => {
-        console.error('Error al obtener alertas:', error);
-      }
+      next: data => this.alertas = data,
+      error: err => console.error('❌ Error al obtener alertas:', err)
     });
   }
 
   crearAlerta(): void {
     this.alertaService.crearAlerta(this.nuevaAlerta).subscribe({
-      next: (response: any) => {
-        alert('✅ Alerta creada correctamente');
+      next: () => {
+        alert('🚨 Alerta creada correctamente');
         this.nuevaAlerta = { tipo: '', descripcion: '', origen: '' };
         this.cargarAlertas();
       },
-      error: (error: any) => {
-        console.error('Error al crear alerta:', error);
-      }
+      error: err => console.error('❌ Error al crear alerta:', err)
+    });
+  }
+
+  registrarUsuario(): void {
+    this.usuarioService.registrarUsuario(this.nuevoUsuario).subscribe({
+      next: () => {
+        alert("✅ Usuario registrado correctamente");
+
+        this.nuevoUsuario = {
+          nombre: '',
+          apellido: '',
+          usuario: '',
+          contrasena: '',
+          dni: '',
+          celular: ''
+        };
+      },
+      error: err => console.error("❌ Error al registrar usuario:", err)
     });
   }
 

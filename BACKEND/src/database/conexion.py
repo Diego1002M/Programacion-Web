@@ -1,18 +1,17 @@
-import pyodbc
+import mysql.connector
+from mysql.connector import Error
+
+
 
 def get_connection():
     try:
-        connection = pyodbc.connect(
-            "DRIVER={ODBC Driver 18 for SQL Server};"
-            "SERVER=DESKTOP-GR8UAER\\SQLEXPRESS;"
-            "DATABASE=dipli_db;"
-            "UID=backend_user;"
-            "PWD=12345;"
-            "Encrypt=no;"
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="palomino",
+            database="proyecto_web"
         )
-        print("✅ Conectado correctamente a SQL Server.")
         return connection
-    except Exception as e:
-        print("❌ Error al conectar a SQL Server:", e)
+    except Error as e:
+        print(f"❌ Error al conectar a MySQL: {e}")
         return None
-    

@@ -1,23 +1,48 @@
-# src/services/usuario_service.py
-import asyncio
+from src.database.conexion import get_connection
 
 class UsuarioService:
-    _usuarios = []
 
     @classmethod
-    async def obtener_usuarios(cls):
-        await asyncio.sleep(0)
-        return cls._usuarios
+    def obtener_usuarios(cls):
+        conn = get_connection()
+        if not conn:
+            return []
+
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM usuarios")
+        resultado = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+        return resultado
 
     @classmethod
-    async def registrar_usuario(cls, data: dict):
-        nuevo = {
-            "id": len(cls._usuarios) + 1,
-            "nombre": data.get("nombre"),
-            "apellido": data.get("apellido"),
-            "usuario": data.get("usuario"),
-            "contrasena": data.get("contrasena"),
+    def registrar_usuario(cls, data: dict):
+        conn = get_connection()
+        if not conn:
+            return {"error": "No se pudo conectar a la BD"}
+
+        cursor = conn.cursor()
+        sql = """
+            INSERT INTO usuarios (nombre, apellido, usuario, contrasena)
+            VALUES (%s, %s, %s, %s)
+        """
+        values = (
+            data["nombre"],
+            data["apellido"],
+            data["usuario"],
+            data["contrasena"],
+        )
+
+        cursor.execute(sql, values)
+        conn.commit()
+
+        new_id = cursor.lastrowid
+
+        cursor.close()
+        conn.close()
+
+        return {
+            "mensaje": "Usuario registrado correctamente",
+            "usuario": {**data, "id": new_id}
         }
-        cls._usuarios.append(nuevo)
-        await asyncio.sleep(0)
-        return {"mensaje": "Usuario registrado correctamente", "usuario": nuevo}
