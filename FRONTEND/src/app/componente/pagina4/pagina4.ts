@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagina4',
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './pagina4.html',
   styleUrls: ['./pagina4.css']
 })
-export class Pagina4 {
+export class Pagina4Component {
 
   constructor(private router: Router) {}
 
@@ -18,6 +18,6 @@ export class Pagina4 {
   }
 
   irIncidentes() {
-    this.router.navigate(['/siguiente']); 
+    this.router.navigate(['/siguiente']); // O donde tú quieras
   }
 }
