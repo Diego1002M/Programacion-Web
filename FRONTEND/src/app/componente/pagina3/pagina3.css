@@ -1,57 +1,146 @@
+/* Fondo general */
 body {
-  background-color: #eee;
-  letter-spacing: 0.7px;
+  background-color: #0f1328;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  letter-spacing: 0.5px;
 }
 
+/* Contenedor */
 .container {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 80px;
+  margin-bottom: 70px;
 }
 
-p {
-  font-size: 14px;
+/* Card central */
+.card-1 {
+  background: #12182f;
+  border-radius: 15px;
+  padding: 35px 20px;
+  border: 1px solid #1f274f;
+  box-shadow: 0 0 18px rgba(0, 195, 255, 0.08);
 }
 
-.btn-primary {
-  background-color: #42A5F5 !important;
-  border-color: #42A5F5 !important;
+.card-1 h5 {
+  color: #00c3ff;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-  color: #42A5F5;
+.card-1 p {
+  color: #b7eaff;
+  font-size: 1rem;
 }
 
-.pic {
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
+/* Opciones */
 .card-block {
   width: 180px;
-  border: 1px solid lightgrey;
-  border-radius: 5px !important;
-  background-color: #FAFAFA;
-  margin-bottom: 30px;
-  transition: transform 0.2s ease-in-out;
+  border-radius: 12px !important;
+  background-color: #1a203d;
+  border: 1px solid #1f274f;
+  padding-top: 20px;
+  transition: 0.25s;
+  box-shadow: 0px 3px 10px rgba(0, 195, 255, 0.05);
 }
 
-.card-block:hover {
-  transform: scale(1.05);
+/* Texto */
+.card-block p {
+  color: #dceaff;
+  margin-top: 10px;
+  font-size: 0.95rem;
 }
 
+/* Imagen de la tarjeta */
+.pic img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.5));
+  transition: 0.3s;
+}
+
+/* Hover */
+.radio:hover {
+  transform: translateY(-6px);
+  border-color: #00c3ff;
+  box-shadow: 0 6px 18px rgba(0, 195, 255, 0.25);
+}
+
+.radio:hover img {
+  transform: scale(1.15);
+}
+
+/* Seleccionada */
 .radio.selected {
-  box-shadow: 0px 8px 16px 0px #EEEEEE;
-  background-color: #E0F2F1;
   filter: grayscale(0%);
-}
-
-.radio {
-  cursor: pointer;
-  filter: grayscale(100%);
-  transition: all 0.3s ease;
+  opacity: 1;
+  background-color: #162044;
+  border-color: #00c3ff !important;
+  box-shadow: 0 6px 20px rgba(0, 195, 255, 0.35);
 }
 
 .radio.selected img {
-  filter: grayscale(0%);
+  filter: drop-shadow(0 0 10px rgba(0, 195, 255, 0.9));
+}
+
+/* Botones */
+.btn-primary {
+  background-color: #00c3ff !important;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.btn-primary:hover {
+  background-color: #009bd4 !important;
+}
+
+.btn-outline-secondary {
+  border-color: #b7eaff;
+  color: #b7eaff;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #b7eaff;
+  color: #0f1328;
+}
+/* ===== FONDO ELEGANTE PARA LA PÁGINA 3 ===== */
+
+:host {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0d1c, #12182f 50%, #0f1328);
+    padding-top: 40px;
+}
+
+/* Asegurar que el body NO ponga blanco */
+body {
+    background: transparent !important;
+}
+
+/* Centrar la tarjeta dentro del nuevo fondo */
+.container {
+    padding-top: 30px;
+}
+
+/* Mejorar la transición visual de la tarjeta */
+.card-1 {
+    backdrop-filter: blur(4px);
+    border: 1px solid #1c2550;
+}
+
+/* Ajustar texto para que no pierda contraste */
+.card-1 h5,
+.card-1 p {
+    color: #bde8ff;
+}
+
+/* Ajustar sombra de las tarjetas pequeñas */
+.card-block {
+    background-color: rgba(26, 32, 61, 0.9);
+    backdrop-filter: blur(3px);
 }

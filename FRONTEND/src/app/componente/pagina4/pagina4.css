@@ -1,0 +1,41 @@
+.contenedor {
+  text-align: center;
+  margin-top: 80px;
+  color: white;
+}
+
+.contenedor h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.contenedor p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.icono img {
+  width: 180px;
+  height: auto;
+  margin: 25px auto;
+}
+
+.btn {
+  background-color: #00aaff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-volver {
+  margin-top: 15px;
+  background-color: #555;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}

@@ -20,15 +20,15 @@ export class Pagina3 {
   opcionSeleccionada: number | null = null;
 
   opciones = [
-    { img: 'assets/robo.png', texto: 'Robo o asalto' },
-    { img: 'assets/incendio.png', texto: 'Incendio' },
-    { img: 'assets/accidente.png', texto: 'Accidente de tránsito' },
-    { img: 'assets/violencia.png', texto: 'Violencia doméstica' },
-    { img: 'assets/emergencia.png', texto: 'Emergencia médica' },
-    { img: 'assets/sospechoso.png', texto: 'Persona sospechosa' },
-    { img: 'assets/animal.png', texto: 'Secuestro' },
-    { img: 'assets/corte.png', texto: 'Extorsión' },
-    { img: 'assets/otro.png', texto: 'Otro tipo de emergencia' }
+    { img: 'assets/alertas/robo.webp', texto: 'Robo o asalto' },
+    { img: 'assets/alertas/incendio.avif', texto: 'Incendio' },
+    { img: 'assets/alertas/accidente.png', texto: 'Accidente de tránsito' },
+    { img: 'assets/alertas/violencia.png', texto: 'Violencia doméstica' },
+    { img: 'assets/alertas/emergencia.png', texto: 'Emergencia médica' },
+    { img: 'assets/alertas/Sospechoso.png', texto: 'Persona sospechosa' },
+    { img: 'assets/alertas/Secuestro.png', texto: 'Secuestro' },
+    { img: 'assets/alertas/Extorsión.png', texto: 'Extorsión' },
+    { img: 'assets/alertas/Otros.png', texto: 'Otro tipo de emergencia' }
   ];
 
   seleccionarOpcion(index: number) {
@@ -48,11 +48,15 @@ export class Pagina3 {
     };
 
     this.alertaService.crearAlerta(alerta).subscribe({
-      next: () => alert('✔ Alerta registrada'),
+      next: () => {
+        alert('✔ Alerta registrada');
+        this.router.navigate(['/pagina4']); // ← siguiente página
+      },
       error: (err) => console.error(err)
     });
   }
 
+  // 🔧 MÉTODO FALTANTE (aquí estaba el error)
   irInicio() {
     this.router.navigate(['/inicio']);
   }

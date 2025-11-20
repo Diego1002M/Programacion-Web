@@ -1,50 +1,49 @@
-<div id="wrapper" [class.toggled]="isToggled">
-  <div class="overlay" [style.display]="isClosed ? 'none' : 'block'"></div>
+<div id="wrapper">
 
-  <!-- Sidebar -->
-  <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
-    <ul class="nav sidebar-nav">
-      <div class="sidebar-header">
-        <div class="sidebar-brand">
-          <a href="#">Brand</a>
-        </div>
-      </div>
-      <li><a routerLink="/inicio">Inicio</a></li>
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/events">Events</a></li>
-      <li><a routerLink="/team">Team</a></li>
-      <li class="dropdown">
-        <a href="#" (click)="toggleSidebar()">Works <span class="caret"></span></a>
-        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-          <div class="dropdown-header">Dropdown heading</div>
-          <li><a routerLink="/pictures">Pictures</a></li>
-          <li><a routerLink="/videos">Videos</a></li>
-          <li><a routerLink="/books">Books</a></li>
-          <li><a routerLink="/art">Art</a></li>
-          <li><a routerLink="/awards">Awards</a></li>
-        </ul>
-      </li>
-      <li><a routerLink="/services">Services</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-      <li><a routerLink="/follow">Follow me</a></li>
-    </ul>
-  </nav>
+  <!-- Sidebar Mejorado -->
+  <aside class="sidebar">
 
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <button
-      type="button"
-      class="hamburger animated fadeInLeft"
-      [ngClass]="{ 'is-closed': isClosed, 'is-open': !isClosed }"
-      (click)="toggleMenu(); toggleSidebar()"
-    >
-      <span class="hamb-top"></span>
-      <span class="hamb-middle"></span>
-      <span class="hamb-bottom"></span>
-    </button>
-
-    <div class="container">
-      <router-outlet></router-outlet>
+    <div class="sidebar-header">
+      <div class="sidebar-title">Seguridad El Tambo</div>
     </div>
-  </div>
+
+    <ul class="sidebar-menu">
+
+      <li><a routerLink="/inicio" routerLinkActive="active">
+        <i class="fas fa-home"></i> Inicio
+      </a></li>
+
+      <li><a routerLink="/usuarios" routerLinkActive="active">
+        <i class="fas fa-users"></i> Usuarios
+      </a></li>
+
+      <li><a routerLink="/accesos" routerLinkActive="active">
+        <i class="fas fa-key"></i> Accesos
+      </a></li>
+
+      <li><a routerLink="/reportes" routerLinkActive="active">
+        <i class="fas fa-file-alt"></i> Reportes
+      </a></li>
+
+      <li><a routerLink="/camaras" routerLinkActive="active">
+        <i class="fas fa-video"></i> Cámaras
+      </a></li>
+
+      <li><a routerLink="/config" routerLinkActive="active">
+        <i class="fas fa-cog"></i> Configuración
+      </a></li>
+
+      <li><a routerLink="/salir" routerLinkActive="active">
+        <i class="fas fa-sign-out-alt"></i> Salir
+      </a></li>
+
+    </ul>
+
+  </aside>
+
+  <!-- Contenido -->
+  <main id="page-content">
+    <router-outlet></router-outlet>
+  </main>
+
 </div>
