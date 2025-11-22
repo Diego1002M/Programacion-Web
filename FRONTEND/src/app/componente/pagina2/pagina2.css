@@ -1,0 +1,120 @@
+/* Contenedor general */
+.contenedor {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+  overflow: hidden; /* evita desbordes */
+}
+
+h2 {
+  color: aliceblue;
+}
+
+h6 {
+  color: aliceblue;
+}
+
+/* Título */
+.titulo {
+  font-size: clamp(22px, 4vw, 30px);
+  margin-bottom: 30px;
+}
+
+/* BOTÓN DE ALERTA */
+.btn-alerta {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.img-alerta {
+  width: clamp(100px, 35vw, 140px);
+  height: clamp(100px, 35vw, 140px);
+  border-radius: 50%;
+  transition: 0.3s ease;
+  margin-top: 70px;
+
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.45);
+}
+
+.img-alerta:hover {
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+  transform: scale(1.05);
+}
+
+/* Texto debajo */
+.estado {
+  margin-top: 20px;
+  font-size: clamp(14px, 2.8vw, 18px);
+  color: aliceblue;
+}
+
+/* BOTÓN DE OBTENER UBICACIÓN */
+.btn-ubicacion {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background-color: #cc270dc9;
+  color: white;
+  border: none;
+  padding: 15px 18px;
+  border-radius: 8px;
+  font-size: clamp(12px, 2.8vw, 18px);
+  cursor: pointer;
+
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-ubicacion:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* 🔥 TEXTOS LATERALES (CORREGIDO PARA QUE NO SE SUBAN ENCIMA DEL BOTÓN) */
+.textos-laterales {
+  position: absolute;
+  left: 20px;
+
+  /* UBICACIÓN CORREGIDA */
+  bottom: calc(25px + 60px + 20px); /* botón + espacio + margen */
+
+  width: calc(100% - 40px);
+  max-width: 600px;
+
+  color: aliceblue;
+  text-wrap: pretty;
+  hyphens: auto;
+  text-align: left;
+}
+
+/* Texto superior */
+.texto-superior {
+  font-size: clamp(14px, 3vw, 18px);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+/* Texto lateral */
+.texto-lateral {
+  font-size: clamp(14px, 3vw, 18px);
+  font-weight: bold;
+  color: #d52f19;
+  margin-bottom: 10px;
+}
+
+/* 📱 Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  .textos-laterales {
+    bottom: calc(25px + 70px + 25px); /* más espacio en celulares */
+    left: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .btn-ubicacion {
+    right: 15px;
+    bottom: 15px;
+  }
+}

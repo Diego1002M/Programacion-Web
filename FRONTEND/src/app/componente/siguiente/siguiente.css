@@ -46,7 +46,7 @@ h6 span{
 .checkbox:not(:checked) + label {
   width: 60px;
   height: 30px;
-  background: linear-gradient(135deg, #ffeba7 0%, #ffdd66 100%);
+  background: linear-gradient(135deg, #3f58aa 0%, #8050d8 100%);
   border-radius: 30px;
   position: relative;
   cursor: pointer;
@@ -60,7 +60,7 @@ h6 span{
   position: absolute;
   width: 28px;
   height: 28px;
-  background: #102770;
+  background: #c9c6cf;
   border-radius: 50%;
   top: 1px;
   left: 1px;
@@ -96,8 +96,8 @@ h6 span{
   margin-top: 60px;
   animation: float 4s ease-in-out infinite;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 235, 167, 0.15),
-              0 0 40px rgba(16, 39, 112, 0.25);
+  box-shadow: 0 0 20px rgba(38, 92, 105, 0.479),
+              0 0 40px rgba(66, 142, 177, 0.404);
   border-radius: 12px;
 }
 .card-3d-wrapper {
@@ -135,7 +135,7 @@ h6 span{
   backface-visibility: hidden;
   /* Efecto glow exterior */
   box-shadow:
-    0 0 12px #ffeba7,
+    0 0 12px #0b1835,
     0 0 20px rgba(255, 234, 167, 0.6),
     0 0 40px rgba(255, 234, 167, 0.3);
   border: 1px solid rgba(255, 234, 167, 0.4);
@@ -144,17 +144,17 @@ h6 span{
 @keyframes glow-pulse {
   0% {
     box-shadow: 
-      0 0 10px #ffeba7,
+      0 0 10px #10b0cce0,
       0 0 25px rgba(255, 234, 167, 0.5);
   }
   50% {
     box-shadow:
-      0 0 20px #ffeba7,
+      0 0 20px #5d65d4,
       0 0 45px rgba(255, 234, 167, 0.9);
   }
   100% {
     box-shadow:
-      0 0 10px #ffeba7,
+      0 0 10px #4c2aaa,
       0 0 25px rgba(255, 234, 167, 0.5);
   }
 }
@@ -200,7 +200,7 @@ h6 span{
   letter-spacing: 0.5px;
   outline: none;
   color: #c4c3ca;
-  background-color: #1f2029;
+  background-color: #2c2d3091;
   border: none;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
@@ -294,8 +294,8 @@ h6 span{
   -ms-flex-pack: center;
   text-align: center;
   border: none;
-  background-color: #ffeba7;
-  color: #102770;
+  background-color: #110b46;
+  color: #ebebeb;
   box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
 }
 .btn:active,
@@ -305,7 +305,7 @@ h6 span{
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }
 .btn:hover{  
-  background-color: #102770;
+  background-color: #3c5faccb;
   color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }

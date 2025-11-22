@@ -1,7 +1,15 @@
 body {
-  background-color: #eee;
+  background-color: #181D40;
   letter-spacing: 0.7px;
 }
+/* Contenedor rosado */
+.card-1 {
+  background: #d0d8e2c6 !important;  /* rosado pastel */
+  border-radius: 15px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 20px rgba(2, 1, 21, 0.6); /* glow rosado */
+}
+
 
 .container {
   margin-top: 100px;
@@ -12,10 +20,36 @@ p {
   font-size: 14px;
 }
 
-.btn-primary {
-  background-color: #42A5F5 !important;
-  border-color: #42A5F5 !important;
+/* Botón base (aplica a ambos) */
+.btn-custom {
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: transparent;
+  color: rgb(1, 0, 0);
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
 }
+
+/* Hover verde brillante */
+.btn-custom:hover {
+  background: #5d7fba68;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(54, 99, 183, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Ícono dentro del botón */
+.btn-custom i {
+  transition: transform 0.3s ease;
+}
+
+.btn-custom:hover i {
+  transform: translateX(4px);
+}
+
 
 .cursor-pointer {
   cursor: pointer;
@@ -53,5 +87,49 @@ p {
 }
 
 .radio.selected img {
+  filter: grayscale(0%);
+}
+/* --- BOTONES CON IMAGEN (card-block) --- */
+
+/* Estado normal */
+.card-block.radio {
+  background: transparent !important; /* fondo transparente */
+  border: 2px solid rgba(17, 28, 180, 0.6) !important; /* borde brillante */
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 183, 255, 0.4); /* glow suave */
+  filter: grayscale(100%);
+}
+
+/* Imagen */
+.card-block.radio img {
+  filter: grayscale(100%);
+  transition: 0.3s ease;
+}
+
+/* Hover – se eleva + luz más fuerte */
+.card-block.radio:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(0, 183, 255, 0.9);
+  border-color: rgba(0, 183, 255, 1) !important;
+}
+
+/* Hover imagen vuelve a color */
+.card-block.radio:hover img {
+  filter: grayscale(0%);
+}
+
+/* Cuando está seleccionado */
+.card-block.radio.selected {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(29, 74, 187, 0.544); /* verde vibrante */
+  border-color: rgba(63, 133, 186, 0.624) !important;
+  background: rgba(86, 109, 173, 0.572) !important; /* pequeño highlight */
+  filter: grayscale(0%);
+}
+
+/* Imagen en seleccionado */
+.card-block.radio.selected img {
   filter: grayscale(0%);
 }

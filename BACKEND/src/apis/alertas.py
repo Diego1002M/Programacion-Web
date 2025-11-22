@@ -9,7 +9,7 @@ class AlertaIn(BaseModel):
     descripcion: str
     origen: str
 
-@router.get(" ")
+@router.get("")
 async def obtener_alertas():
     return AlertaService.obtener_alertas()
 

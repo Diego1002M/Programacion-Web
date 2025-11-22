@@ -20,15 +20,15 @@ export class Pagina3 {
   opcionSeleccionada: number | null = null;
 
   opciones = [
-    { img: 'assets/robo.png', texto: 'Robo o asalto' },
-    { img: 'assets/incendio.png', texto: 'Incendio' },
-    { img: 'assets/accidente.png', texto: 'Accidente de tránsito' },
-    { img: 'assets/violencia.png', texto: 'Violencia doméstica' },
-    { img: 'assets/emergencia.png', texto: 'Emergencia médica' },
-    { img: 'assets/sospechoso.png', texto: 'Persona sospechosa' },
-    { img: 'assets/animal.png', texto: 'Secuestro' },
-    { img: 'assets/corte.png', texto: 'Extorsión' },
-    { img: 'assets/otro.png', texto: 'Otro tipo de emergencia' }
+    { img: 'asalto.png', texto: 'Robo o asalto' },
+    { img: 'incendio.png', texto: 'Incendio' },
+    { img: 'accidente.png', texto: 'Accidente de tránsito' },
+    { img: 'violencia.png', texto: 'Violencia doméstica' },
+    { img: 'emergencia.png', texto: 'Emergencia médica' },
+    { img: 'sospechoso.png', texto: 'Persona sospechosa' },
+    { img: 'secuestro.png', texto: 'Secuestro' },
+    { img: 'extorcion.png', texto: 'Extorsión' },
+    { img: 'otro.png', texto: 'Otro tipo de emergencia' }
   ];
 
   seleccionarOpcion(index: number) {

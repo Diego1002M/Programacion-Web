@@ -5,8 +5,17 @@ import { Pagina3 } from './componente/pagina3/pagina3';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+
   { path: 'inicio', component: InicioComponent },
   { path: 'siguiente', component: SiguienteComponent },
   { path: 'pagina3', component: Pagina3 },
-  { path: '**', redirectTo: 'inicio' } // ← opcional: fallback
+
+  {
+    path: 'pagina2',
+    loadComponent: () =>
+      import('./componente/pagina2/pagina2')
+        .then(c => c.Pagina2)
+  },
+
+  { path: '**', redirectTo: 'inicio' }
 ];

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-9">
-      <div class="card text-center justify-content-center shadow-lg card-1 border-0 bg-white px-sm-2">
+      <div class="card text-center justify-content-center shadow-lg card-1 border-0 px-sm-2">
         <div class="card-body show">
           <div class="row">
             <div class="col">
@@ -24,18 +24,20 @@
             </div>
           </div>
             
-          <div class="row justify-content-between mt-4">
-            <div class="col-auto">
-              <button class="btn btn-outline-secondary" (click)="irInicio()">
-                Ir al inicio
-              </button>
+            <div class="row justify-content-between mt-4">
+                <div class="col-auto">
+                  <button class="btn-custom" (click)="irInicio()">
+                    Ir al inicio
+                  </button>
+                </div>
+
+                <div class="col-auto">
+                  <button class="btn-custom" (click)="enviarAlerta()">
+                    Confirmar <i class="fa fa-angle-right ml-2"></i>
+                  </button>
+                </div>
             </div>
-            <div class="col-auto">
-              <button class="btn btn-primary" (click)="enviarAlerta()">
-                Confirmar <i class="fa fa-angle-right ml-2"></i>
-              </button>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
