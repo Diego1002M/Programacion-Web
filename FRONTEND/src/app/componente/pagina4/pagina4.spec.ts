@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Pagina4 } from './pagina4';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('Pagina4', () => {
   let component: Pagina4;
@@ -8,16 +8,16 @@ describe('Pagina4', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Pagina4]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [Pagina4]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Pagina4);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create page', () => {
     expect(component).toBeTruthy();
   });
 });

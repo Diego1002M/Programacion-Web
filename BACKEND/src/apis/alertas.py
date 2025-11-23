@@ -8,11 +8,14 @@ class AlertaIn(BaseModel):
     tipo: str
     descripcion: str
     origen: str
+    ubicacion: str | None = "No registrada"
 
-@router.get("")
+# Obtener alertas
+@router.get("/")
 async def obtener_alertas():
     return AlertaService.obtener_alertas()
 
-@router.post("")
+# Registrar alerta
+@router.post("/")
 async def registrar_alerta(alerta: AlertaIn):
     return AlertaService.registrar_alerta(alerta.dict())

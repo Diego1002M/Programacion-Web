@@ -1,0 +1,32 @@
+.contenedor {
+  margin: 40px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  background: #ffffff1a;
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ffffff44;
+}
+
+th {
+  background: #42A5F5;
+  color: white;
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.15);
+  cursor: pointer;
+}

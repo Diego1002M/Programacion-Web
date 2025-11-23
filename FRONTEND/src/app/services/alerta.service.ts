@@ -15,6 +15,7 @@ export class AlertaService {
   obtenerAlertas(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
+  
 
   crearAlerta(alerta: any): Observable<any> {
     return this.http.post(this.apiUrl, alerta);

@@ -16,6 +16,13 @@ export const routes: Routes = [
       import('./componente/pagina2/pagina2')
         .then(c => c.Pagina2)
   },
+  {
+  path: 'pagina4',
+  loadComponent: () =>
+    import('./componente/pagina4/pagina4')
+      .then(c => c.Pagina4)
+},
+
 
   { path: '**', redirectTo: 'inicio' }
 ];

@@ -1,1 +1,25 @@
-<p>pagina4 works!</p>
+<div class="contenedor">
+  <h2>📋 Historial de Alertas Registradas</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo de alerta</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Lugar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let a of alertas">
+        <td>{{ a.id }}</td>
+        <td>{{ a.tipo }}</td>
+        <td>{{ a.fecha }}</td>
+        <td>{{ a.hora }}</td>
+        <td>{{ a.ubicacion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
