@@ -45,8 +45,9 @@ export class Pagina2 {
       return;
     }
 
-    // Si ya se obtuvo la ubicación → ir a pagina3
-    this.router.navigate(['/pagina3']);
+    localStorage.setItem('ubicacion', this.ubicacionTexto);
+this.router.navigate(['/pagina3']);
+
   }
 
 }

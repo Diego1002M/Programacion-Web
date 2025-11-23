@@ -12,12 +12,16 @@ import { AlertaService } from '../../services/alerta.service';
 })
 export class Pagina3 {
 
+  opcionSeleccionada: number | null = null;
+  ubicacion: string = 'No registrada';
+
   constructor(
     private router: Router,
     private alertaService: AlertaService
-  ) {}
-
-  opcionSeleccionada: number | null = null;
+  ) {
+    // 🔥 Recuperar ubicación guardada desde pagina2
+    this.ubicacion = localStorage.getItem('ubicacion') || 'No registrada';
+  }
 
   opciones = [
     { img: 'asalto.png', texto: 'Robo o asalto' },
@@ -41,10 +45,12 @@ export class Pagina3 {
       return;
     }
 
+    // 🔥 Ahora se envía también la ubicación
     const alerta = {
       tipo: this.opciones[this.opcionSeleccionada].texto,
       descripcion: 'Enviada desde el frontend Angular',
-      origen: 'Frontend'
+      origen: 'Frontend',
+      ubicacion: this.ubicacion
     };
 
     this.alertaService.crearAlerta(alerta).subscribe({
@@ -53,7 +59,7 @@ export class Pagina3 {
     });
   }
 
-  irInicio() {
-    this.router.navigate(['/inicio']);
+  iratras() {
+    this.router.navigate(['/siguiente']);
   }
 }
