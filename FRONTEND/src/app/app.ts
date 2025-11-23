@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { InicioComponent } from './componente/inicio/inicio';
 import { SiguienteComponent } from './componente/siguiente/siguiente';
 import { Pagina3 } from './componente/pagina3/pagina3';
-import { Pagina4Component } from './componente/pagina4/pagina4';  // <-- ¡AGREGAR ESTO!
+import { Pagina4Component } from './componente/pagina4/pagina4';
 import { Menu } from './componente/menu/menu';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     InicioComponent,
     SiguienteComponent,
     Pagina3,
-    Pagina4Component,   // <-- ¡AGREGAR ESTO!
+    Pagina4Component,  // <--- OBLIGATORIO
     Menu,
     HttpClientModule
   ],
