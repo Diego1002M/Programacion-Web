@@ -19,3 +19,12 @@ async def obtener_alertas():
 @router.post("/")
 async def registrar_alerta(alerta: AlertaIn):
     return AlertaService.registrar_alerta(alerta.dict())
+
+@router.delete("/{id}")
+async def eliminar_alerta(id: int):
+    return AlertaService.eliminar_alerta(id)
+
+
+@router.put("/{id}")
+async def editar_alerta(id: int, alerta: AlertaIn):
+    return AlertaService.editar_alerta(id, alerta.dict())

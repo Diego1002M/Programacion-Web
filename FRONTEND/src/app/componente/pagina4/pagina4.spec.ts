@@ -8,8 +8,7 @@ describe('Pagina4', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [Pagina4]
+      imports: [HttpClientTestingModule, Pagina4]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Pagina4);

@@ -13,16 +13,16 @@ class AlertaService:
         cursor.execute("SELECT * FROM alertas ORDER BY id DESC")
         resultado = cursor.fetchall()
 
-        # Separar fecha y hora
         for r in resultado:
             if "timestamp" in r and r["timestamp"]:
                 dt = r["timestamp"]
                 r["fecha"] = dt.strftime("%Y-%m-%d")
-                r["hora"]  = dt.strftime("%H:%M:%S")
+                r["hora"] = dt.strftime("%H:%M:%S")
 
         cursor.close()
         conn.close()
         return resultado
+
 
     @classmethod
     def registrar_alerta(cls, data: dict):
@@ -49,7 +49,6 @@ class AlertaService:
 
         cursor.execute(sql, values)
         conn.commit()
-
         new_id = cursor.lastrowid
 
         cursor.close()
@@ -63,3 +62,50 @@ class AlertaService:
                 "timestamp": timestamp
             }
         }
+
+
+    @classmethod
+    def eliminar_alerta(cls, id: int):
+        conn = get_connection()
+        if not conn:
+            return {"error": "No se pudo conectar a la BD"}
+
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM alertas WHERE id = %s", (id,))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return {"mensaje": "Alerta eliminada correctamente"}
+
+
+    @classmethod
+    def editar_alerta(cls, id: int, data: dict):
+        conn = get_connection()
+        if not conn:
+            return {"error": "No se pudo conectar a la BD"}
+
+        cursor = conn.cursor()
+
+        sql = """
+            UPDATE alertas
+            SET tipo = %s, descripcion = %s, origen = %s, ubicacion = %s
+            WHERE id = %s
+        """
+
+        values = (
+            data["tipo"],
+            data["descripcion"],
+            data["origen"],
+            data.get("ubicacion", "No registrada"),
+            id
+        )
+
+        cursor.execute(sql, values)
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return {"mensaje": "Alerta actualizada correctamente"}

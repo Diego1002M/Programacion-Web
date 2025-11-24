@@ -1,0 +1,57 @@
+<div class="contenedor-admin">
+
+  <h2 class="titulo">Panel de Administración</h2>
+
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Ubicación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let a of alertas">
+        <td>{{ a.id }}</td>
+        <td>{{ a.tipo }}</td>
+
+        <!-- FECHA y HORA -->
+        <td>{{ a.timestamp | date:'yyyy-MM-dd' }}</td>
+        <td>{{ a.timestamp | date:'HH:mm' }}</td>
+
+        <td>{{ a.ubicacion }}</td>
+
+        <td>
+          <button class="btn-edit" (click)="editar(a.id)">Editar</button>
+          <button class="btn-delete" (click)="eliminar(a.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="alertaEditando" class="edit-box">
+  <h3>Editar Alerta</h3>
+
+  <label>Tipo:</label>
+  <input [(ngModel)]="alertaEditando.tipo">
+
+  <label>Descripción:</label>
+  <input [(ngModel)]="alertaEditando.descripcion">
+
+  <label>Origen:</label>
+  <input [(ngModel)]="alertaEditando.origen">
+
+  <label>Ubicación:</label>
+  <input [(ngModel)]="alertaEditando.ubicacion">
+
+  <button class="btn-edit" (click)="guardarEdicion()">Guardar cambios</button>
+  <button class="btn-delete" (click)="alertaEditando = null">Cancelar</button>
+</div>
+
+
+  <button class="btn-salir" (click)="salir()">Cerrar sesión</button>
+</div>

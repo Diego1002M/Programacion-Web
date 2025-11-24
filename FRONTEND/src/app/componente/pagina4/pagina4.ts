@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './pagina4.html',
   styleUrls: ['./pagina4.css']
 })
-export class Pagina4Component implements OnInit {
+export class Pagina4 implements OnInit {
 
   alertas: any[] = [];
 
