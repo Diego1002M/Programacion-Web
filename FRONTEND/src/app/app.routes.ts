@@ -4,6 +4,7 @@ import { SiguienteComponent } from './componente/siguiente/siguiente';
 import { Pagina3 } from './componente/pagina3/pagina3';
 import { AdminComponent } from './componente/admin/admin';
 import { AdminLoginComponent } from './componente/admin-login/admin-login';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
 
@@ -15,6 +16,7 @@ export const routes: Routes = [
 
   {
     path: 'pagina2',
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('./componente/pagina2/pagina2').then(c => c.Pagina2)
   },
@@ -25,10 +27,7 @@ export const routes: Routes = [
       import('./componente/pagina4/pagina4').then(m => m.Pagina4)
   },
 
-  // LOGIN ADMIN
   { path: 'admin-login', component: AdminLoginComponent },
-
-  // PANEL ADMIN
   { path: 'admin', component: AdminComponent },
 
   { path: '**', redirectTo: 'inicio' }
