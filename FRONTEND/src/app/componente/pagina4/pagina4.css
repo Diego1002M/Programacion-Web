@@ -1,0 +1,63 @@
+.contenedor {
+  padding: 25px;
+  max-width: 900px;
+  margin: auto;
+  background: #1e234f;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  margin-top: 35px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #202651;
+}
+
+.tabla thead {
+  background: #189a9cce;
+}
+
+.tabla th {
+  padding: 14px;
+  color: rgb(5, 3, 3);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.tabla td {
+  padding: 12px;
+  text-align: center;
+  color: #e4e4e4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Alternar colores de filas */
+.tabla tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover elegante */
+.tabla tbody tr:hover {
+  background: rgba(51, 194, 207, 0.396);
+  cursor: pointer;
+}
+
+/* Bordes redondeados arriba */
+.tabla th:first-child {
+  border-top-left-radius: 12px;
+}
+.tabla th:last-child {
+  border-top-right-radius: 12px;
+}

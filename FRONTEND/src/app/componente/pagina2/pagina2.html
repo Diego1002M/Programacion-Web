@@ -1,0 +1,26 @@
+<div class="contenedor">
+
+  <h2 class="titulo">Enviar Alerta</h2>
+
+  <!-- BOTÓN DE ALERTA CENTRADO -->
+
+  <h6>Necesitas ayuda oprime el boton de panico</h6>
+
+  
+  <button class="btn-alerta" (click)="presionarAlerta()">
+    <img src="alerta.png" class="img-alerta">
+  </button>
+
+  
+  <!-- Texto de estado -->
+  <p class="estado">{{ ubicacionTexto }}</p>
+<div class="textos-laterales">
+  <p class="texto-superior">🚨 Importante: Este aplicativo está destinado a reportar situaciones reales de riesgo o emergencia.  Enviar alertas falsas puede perjudicar a quienes realmente necesitan ayuda. Tu responsabilidad salva vidas.</p>
+  <p class="texto-lateral">Primero autoriza tu ubicación</p>
+</div>
+  <!-- BOTÓN DE OBTENER UBICACIÓN (ESQUINA DERECHA INFERIOR) -->
+  <button class="btn-ubicacion" (click)="obtenerUbicacion()">
+    Obtener ubicación
+  </button>
+
+</div>

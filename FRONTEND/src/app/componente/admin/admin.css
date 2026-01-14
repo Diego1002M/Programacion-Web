@@ -1,0 +1,59 @@
+.contenedor-admin {
+  padding: 25px;
+  color: white;
+  background-color: #181D40;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: #202553;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla th {
+  background: #3fb5a5a4;
+  padding: 12px;
+  text-align: center;
+}
+
+.tabla td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #444a70;
+}
+
+.btn-edit {
+  background: #7bb333a4;
+  border: none;
+  padding: 6px 10px;
+  color: white;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background: #3769be;
+  border: none;
+  padding: 6px 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-salir {
+  margin-top: 20px;
+  background: #444a70;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  display: block;
+  margin-left: auto;
+}

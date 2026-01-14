@@ -1,0 +1,133 @@
+.principal {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #ffffff;
+
+  background-color: #181D40;
+
+  /* ⭐ Borde suave y brillante */
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+
+  /* ⭐ Efecto sobresalido / glow */
+  box-shadow: 
+      0 0 15px rgba(255, 255, 255, 0.1),
+      0 0 35px rgba(63, 118, 163, 0.466),
+      0 10px 25px rgba(0, 0, 0, 0.5);
+
+  /* Para que no quede pegado al borde en mobile */
+  margin: 10px;
+}
+
+
+/* Textos */
+.principal h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.principal h1 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Contenedor de imágenes */
+.imagenes {
+  position: relative;
+  width: 300px;
+  height: 260px;
+  margin-bottom: 40px;
+}
+
+/* Imagen 1 */
+.imagenes img:first-child {
+  width: 65%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Imagen 2 encima */
+.imagenes img:last-child {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+}
+.btn-lindo {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00aaff, #0066ff);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.6);
+  transition: 0.25s;
+}
+
+.btn-lindo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(12, 120, 173, 0.85);
+}
+
+/* Logo */
+.logo {
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .principal h1 {
+    font-size: 1.8rem;
+  }
+
+  .imagenes {
+    width: 220px;
+    height: 200px;
+  }
+
+  .imagenes img:first-child {
+    width: 70%;
+  }
+
+  .imagenes img:last-child {
+    width: 55%;
+    top: 65%;
+  }
+
+  .logo {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .principal h1 {
+    font-size: 1.5rem;
+  }
+
+  .imagenes {
+    width: 180px;
+    height: 160px;
+  }
+
+  .imagenes img:first-child {
+    width: 75%;
+  }
+
+  .imagenes img:last-child {
+    width: 60%;
+  }
+}
